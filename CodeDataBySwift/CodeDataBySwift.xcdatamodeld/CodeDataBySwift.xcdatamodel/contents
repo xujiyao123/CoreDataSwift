@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8193.2" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="LogIn" representedClassName=".LogIn" syncable="YES">
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PersonNotes" inverseName="maker" inverseEntity="PersonNotes" syncable="YES"/>
+    </entity>
+    <entity name="PersonNotes" representedClassName=".PersonNotes" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="maker" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LogIn" inverseName="notes" inverseEntity="LogIn" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LogIn" positionX="-36" positionY="36" width="128" height="105"/>
+        <element name="PersonNotes" positionX="-54" positionY="-9" width="128" height="90"/>
+    </elements>
+</model>
