@@ -13,4 +13,11 @@ class LogIn: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
+    
+    func addNotesWithNotes(notes: PersonNotes) {
+        
+    
+    
+        
+    }
 }

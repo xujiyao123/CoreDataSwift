@@ -17,6 +17,6 @@ extension LogIn {
     @NSManaged var password: String?
     @NSManaged var photo: NSData?
     @NSManaged var user: String?
-    @NSManaged var notes: NSSet?
+    @NSManaged var notes: NSMutableArray?
 
 }

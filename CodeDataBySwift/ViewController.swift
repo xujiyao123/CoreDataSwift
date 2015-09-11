@@ -12,6 +12,7 @@ class ViewController: UIViewController ,UITableViewDelegate , UITableViewDataSou
 
     var tableView : UITableView!
     var dataSources = NSMutableArray()
+    var array = [LogIn]()
     
     
     override func viewDidLoad() {
@@ -25,8 +26,15 @@ class ViewController: UIViewController ,UITableViewDelegate , UITableViewDataSou
             let fetchResults = try context!.executeFetchRequest(request) as? [LogIn]
             
           //  self.dataSources = fetchResults!
+            array = fetchResults!
             
-            print(fetchResults)
+            let notes = array[0].notes
+            
+            let no = notes![0]
+            
+     print(no)
+        
+            
             
         } catch let fetchError as NSError {
             print("获取用户名错误: \(fetchError.localizedDescription)")
@@ -73,7 +81,15 @@ class ViewController: UIViewController ,UITableViewDelegate , UITableViewDataSou
             let logInEntity = NSEntityDescription.entityForName("LogIn", inManagedObjectContext: context)
             let logModel = NSManagedObject(entity: logInEntity!, insertIntoManagedObjectContext:context) as! LogIn
             
-            logModel.notes?.content = textStr.text!
+            let neteEntity = NSEntityDescription.entityForName("PersonNotes", inManagedObjectContext: context)
+            let noteModel = NSManagedObject(entity: neteEntity!, insertIntoManagedObjectContext: context) as! PersonNotes
+            
+            noteModel.content = textStr.text
+            
+            logModel.notes?.addObject(noteModel)
+            
+            
+          //  logModel.notes?.content = textStr.text!
             
             
             do {
